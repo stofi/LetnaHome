@@ -11,11 +11,15 @@
         :height="10"
         recieve-shadow
         :rotation="{ x: -Math.PI / 2, y: 0, z: 0 }"
-        ><PhysicalMaterial color="#eee" />
-      </Plane>>
+        ><PhysicalMaterial color="#eee" /> </Plane
+      >>
       <!-- <PointLight :position="{ x: 50, z: 50 }" cast-shadow :intensity="1" /> -->
       <!-- <SpotLight :position="{ x: 50, z: 50 }" cast-shadow :intensity="1" /> -->
-      <DirectionalLight :position="{ x: 50, z: 50 }" cast-shadow :intensity="1" />
+      <DirectionalLight
+        :position="{ x: 50, z: 50 }"
+        cast-shadow
+        :intensity="1"
+      />
       <!-- <HemisphereLight :position="{ x: 50, z: 50 }" cast-shadow :intensity="1" /> -->
       <!-- <RectAreaLight :position="{ x: 50, z: 50 }" cast-shadow :intensity="1" /> -->
       <!-- <AmbientLight cast-shadow :intensity="0.1" /> -->
@@ -32,10 +36,9 @@
   </Renderer>
 </template>
 
-<script setup>
-import { onMounted, ref } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
-
+<script>
+/* eslint-disable vue/no-unused-components */
+/* eslint-disable no-unused-vars */
 import {
   GltfModel,
   Box,
@@ -56,21 +59,25 @@ import {
   Plane,
 } from 'troisjs'
 
-const scene = ref(null)
-
-function onModelLoaded(object) {
-  console.log('model loaded')
+export default {
+  components: {
+    GltfModel,
+    Box,
+    Camera,
+    LambertMaterial,
+    PointLight,
+    AmbientLight,
+    SpotLight,
+    DirectionalLight,
+    HemisphereLight,
+    RectAreaLight,
+    Renderer,
+    Scene,
+    SphereGeometry,
+    PhongMaterial,
+    PhysicalMaterial,
+    InstancedMesh,
+    Plane,
+  },
 }
-function onLoad(object) {
-  console.log(object)
-}
-function onProgress(object) {
-  // console.log(object)
-}
-function onError(err) {
-  console.log(err)
-}
-
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md
 </script>
